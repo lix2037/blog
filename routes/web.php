@@ -29,5 +29,7 @@ Route::any('admin/code','Admin\LoginController@code');
 Route::group(['namespace'=>'Admin','middleware'=>'admin.login','prefix'=>'admin'],function (){
 
     Route::get('index','IndexController@index');
+    Route::get('info','IndexController@info');
+
 });
 
