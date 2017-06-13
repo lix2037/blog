@@ -103,6 +103,18 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'username'=>[
+            'required'=>'用户名不能为空',
+            'max'=>'用户名长度超过限制',
+        ],
+        'password'=>[
+            'required'=>'密码不能为空',
+            'min'=>'密码长度不符合要求',
+        ],
+        'code'=>[
+            'required'=>'验证码不能为空',
+            'captcha'=>'验证码错误',
+        ],
     ],
 
     /*

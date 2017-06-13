@@ -10,8 +10,13 @@
 		<h1>Blog</h1>
 		<h2>欢迎使用博客管理平台</h2>
 		<div class="form">
-			<p style="color:red">用户名错误</p>
-			<form action="#" method="post">
+			@if(count($errors)>0)
+				@foreach($errors->all() as $error)
+					<p style="color:red">{{$error}}</p>
+				@endforeach
+			@endif
+
+			<form action="{{url('admin/login')}}" method="post">
 				{{csrf_field()}}
 				<ul>
 					<li>

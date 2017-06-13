@@ -9,6 +9,7 @@ class IndexController extends CommonController
     //
     public function index()
     {
+        dd(session('admin'));
         return 111;
     }
 }

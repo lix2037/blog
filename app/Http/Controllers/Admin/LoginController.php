@@ -10,30 +10,34 @@ use Illuminate\Support\Facades\Validator;
 class LoginController extends CommonController
 {
     //
+    public function __construct()
+    {
+//        $admin = DB::table('table');
+    }
     public function index(Request $request)
     {
         $input = $request->all();
-//        $validator = Validator::make($request->all(), [
-//            'username' => 'required|unique:posts|max:255',
-//            'password' => 'required|min:6',
-//            'code' => 'required',
-//        ]);
-//        if ($validator->fails()) {
-//            return redirect('admin/login')
-//                ->withErrors($validator)
-//                ->withInput();
-//        }
-        //
-        $rules = [
-            'username' => 'required|unique:posts|max:255',
-            'password' => 'required|min:6',
-            'code' => 'required|captcha',
-        ];
-//        Validator
-        $code = captcha();
-//        dd($code);
+        if($input){
+            $rules = [
+                'username' => 'required|max:255',
+                'password' => 'required|min:6',
+                'code' => 'required|captcha',
+            ];
 
-        var_dump($input['code']);
+            $validator = Validator::make($input,$rules);
+
+            if($this->checkLogin($input)){
+                $admin = $this->checkLogin($input);
+            }
+            if($validator->fails()){
+//                dd($validator->errors());
+                return back()->withErrors($validator);
+            }else{
+                session(['admin'=>$admin]);
+                return redirect('admin/index');
+            }
+        }
+
         return view('admin.login');
     }
     //验证码
@@ -61,4 +65,18 @@ class LoginController extends CommonController
 
         dd($admin);
     }
+
+    private function checkLogin($params)
+    {
+        $admin = DB::table('admin')->where('username','=',$params['username'])->first();
+
+        if(!$admin)
+            return false;
+        $password = decrypt($admin->password);
+
+        if($params['password'] != $password)
+            return false;
+        return $admin;
+    }
+
 }
