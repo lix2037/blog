@@ -21,8 +21,7 @@
             </ul>
         </div>
     </div>
-
-
+    
     <div class="result_wrap">
         <div class="result_title">
             <h3>使用帮助</h3>
