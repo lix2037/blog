@@ -14,7 +14,7 @@ class CreateAdminTable extends Migration
     public function up()
     {
         //
-        if(Schema::hasTable('admin')){
+        if(!Schema::hasTable('admin')){
             Schema::create('admin', function (Blueprint $table) {
                 $table->increments('id');
                 $table->string('username')->unique();

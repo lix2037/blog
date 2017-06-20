@@ -110,6 +110,7 @@ return [
         'password'=>[
             'required'=>'密码不能为空',
             'min'=>'密码长度不符合要求',
+            'between'=>'密码长度在6-20位之间',
         ],
         'code'=>[
             'required'=>'验证码不能为空',
