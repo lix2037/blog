@@ -10,11 +10,12 @@
 		<h1>Blog</h1>
 		<h2>欢迎使用博客管理平台</h2>
 		<div class="form">
-			@if(count($errors)>0)
-				@foreach($errors->all() as $error)
-					<p style="color:red">{{$error}}</p>
-				@endforeach
-			@endif
+
+				@if(count($errors)>0)
+					@foreach($errors->all() as $error)
+						<p style="color:red">{{$error}}</p>
+					@endforeach
+				@endif
 
 			<form action="{{url('admin/login')}}" method="post">
 				{{csrf_field()}}
@@ -28,9 +29,9 @@
 						<span><i class="fa fa-lock"></i></span>
 					</li>
 					<li>
-						<input type="text" class="code" name="code"/>
+						<input type="text" class="code" name="code" />
 						<span><i class="fa fa-check-square-o"></i></span>
-						<img src="{{url('admin/code')}}" alt="" onclick="this.src='{{ url('admin/code') }}?r='+Math.random();" >
+						<img src="{{url('admin/code')}}" alt="" onclick="this.src='{{ url('admin/code') }}?r='+Math.random();"  >
 					</li>
 					<li>
 						<input type="submit" value="立即登陆"/>

@@ -1,21 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-	<meta charset="utf-8">
-	<link rel="stylesheet" href="style/css/ch-ui.admin.css">
-	<link rel="stylesheet" href="style/font/css/font-awesome.min.css">
-    <script type="text/javascript" src="style/js/jquery.js"></script>
-    <script type="text/javascript" src="style/js/ch-ui.admin.js"></script>
-</head>
-<body>
+@extends('layouts.admin')
+@section('content')
     <!--面包屑导航 开始-->
     <div class="crumb_warp">
         <!--<i class="fa fa-bell"></i> 欢迎使用登陆网站后台，建站的首选工具。-->
-        <i class="fa fa-home"></i> <a href="#">首页</a> &raquo; <a href="#">商品管理</a> &raquo; 添加商品
+        <i class="fa fa-home"></i> <a href="#">首页</a> &raquo; <a href="#">节点信息</a> &raquo; 节点列表
     </div>
     <!--面包屑导航 结束-->
 
-	<!--结果页快捷搜索框 开始-->
+	{{--<!--结果页快捷搜索框 开始-->
 	<div class="search_wrap">
         <form action="" method="post">
             <table class="search_tab">
@@ -35,11 +27,11 @@
             </table>
         </form>
     </div>
-    <!--结果页快捷搜索框 结束-->
+    <!--结果页快捷搜索框 结束-->--}}
 
     <!--搜索结果页面 列表 开始-->
     <form action="#" method="post">
-        <div class="result_wrap">
+        {{--<div class="result_wrap">
             <!--快捷导航 开始-->
             <div class="result_content">
                 <div class="short_wrap">
@@ -49,7 +41,7 @@
                 </div>
             </div>
             <!--快捷导航 结束-->
-        </div>
+        </div>--}}
 
         <div class="result_wrap">
             <div class="result_content">
@@ -129,7 +121,7 @@
 
 
 <div class="page_nav">
-<div>
+{{--<div>
 <a class="first" href="/wysls/index.php/Admin/Tag/index/p/1.html">第一页</a> 
 <a class="prev" href="/wysls/index.php/Admin/Tag/index/p/7.html">上一页</a> 
 <a class="num" href="/wysls/index.php/Admin/Tag/index/p/6.html">6</a>
@@ -140,7 +132,7 @@
 <a class="next" href="/wysls/index.php/Admin/Tag/index/p/9.html">下一页</a> 
 <a class="end" href="/wysls/index.php/Admin/Tag/index/p/11.html">最后一页</a> 
 <span class="rows">11 条记录</span>
-</div>
+</div>--}}
 </div>
 
 
@@ -162,6 +154,4 @@
     <!--搜索结果页面 列表 结束-->
 
 
-
-</body>
-</html>
+@endsection

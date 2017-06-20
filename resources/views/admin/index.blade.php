@@ -11,9 +11,9 @@
 		</div>
 		<div class="top_right">
 			<ul>
-				<li>管理员：admin</li>
-				<li><a href="{{url('/')}}" target="main">修改密码</a></li>
-				<li><a href="#">退出</a></li>
+				<li>管理员：{{session('admin')->username}}</li>
+				<li><a href="{{url('admin/pass')}}" target="main">修改密码</a></li>
+				<li><a href="{{url('admin/logout')}}">退出</a></li>
 			</ul>
 		</div>
 	</div>
@@ -26,19 +26,29 @@
             	<h3><i class="fa fa-fw fa-clipboard"></i>常用操作</h3>
                 <ul class="sub_menu">
                     <li><a href="ch-ui.admin/add.html" target="main"><i class="fa fa-fw fa-plus-square"></i>添加页</a></li>
-                    <li><a href="ch-ui.admin/list.html" target="main"><i class="fa fa-fw fa-list-ul"></i>列表页</a></li>
+                    <li><a href="node.blade.php" target="main"><i class="fa fa-fw fa-list-ul"></i>列表页</a></li>
                     <li><a href="ch-ui.admin/tab.html" target="main"><i class="fa fa-fw fa-list-alt"></i>tab页</a></li>
                     <li><a href="ch-ui.admin/img.html" target="main"><i class="fa fa-fw fa-image"></i>图片列表</a></li>
                 </ul>
             </li>
-            <li>
+            {{--<li>
             	<h3><i class="fa fa-fw fa-cog"></i>系统设置</h3>
                 <ul class="sub_menu">
                     <li><a href="#" target="main"><i class="fa fa-fw fa-cubes"></i>网站配置</a></li>
                     <li><a href="#" target="main"><i class="fa fa-fw fa-database"></i>备份还原</a></li>
                     <li><a href="{{url('admin/info')}}" target="main"><i class="fa fa-fw fa-database"></i>系统信息</a></li>
                 </ul>
-            </li>
+            </li>--}}
+			@foreach($datas as $data)
+				<li>
+					<h3><i class="fa fa-fw fa-tags"></i>{{$data['node_name']}}</h3>
+					<ul class="sub_menu">
+						@foreach($data['_sub'] as $item)
+							<li><a href="{{url('admin/'.$item['m_c_a'])}}" target="main"><i class="fa fa-fw fa-list-ul"></i>{{$item['node_name']}}</a></li>
+						@endforeach
+					</ul>
+				</li>
+			@endforeach
             <li>
             	<h3><i class="fa fa-fw fa-thumb-tack"></i>工具导航</h3>
                 <ul class="sub_menu">
