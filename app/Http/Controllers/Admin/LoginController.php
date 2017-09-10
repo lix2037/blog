@@ -22,10 +22,10 @@ class LoginController extends CommonController
 
             $validator = Validator::make($input,$rules);
 
-            $admin = [];
+            /*$admin = [];
             if($this->checkLogin($input)){
                 $admin = $this->checkLogin($input);
-            }
+            }*/
 
             if($validator->fails()){
 //                dd($validator->errors());

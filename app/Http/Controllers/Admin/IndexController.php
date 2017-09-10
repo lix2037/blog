@@ -40,7 +40,7 @@ class IndexController extends CommonController
 
 //        dump(Redis::hget('article:'.$ip,1));
 
-        return view('admin.info',/*['info'=>$info],*/compact('info'));
+        return view('admin.info',compact('info'));
     }
 
     public function pass()
